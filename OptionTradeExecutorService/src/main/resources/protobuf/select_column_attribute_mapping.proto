@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package options.trading.query.select.proto;
+
+message SelectDef {
+  repeated SelectColumn selectColumn = 1;
+  repeated MetaDataOverride metaDataOverride = 2;
+  }
+
+message SelectColumn
+{
+  string selectColumnAliasName = 1;
+  string className = 2;
+  repeated AttributeDef attributeDef = 3;
+  CustomDeserializer customDeserializer = 4;
+}
+
+message AttributeDef {
+  string attributeName = 1;
+  string aliasName = 2;
+  repeated string overriddenClassName =3;
+  string customConverterClassName = 4;
+  string customConverterMethodName = 5;
+  repeated AttributeDef attributeDef = 6;
+  AttributeType attributeType = 7;
+  repeated string overriddenMethodVsClassName = 8;
+  repeated string invokeOnTrueMethodVsConditionalMethod = 9;
+}
+
+message MetaDataOverride {
+  int32 index = 1;
+  string aliasName = 2;
+  AttributeType attributeType = 3;
+}
+
+enum AttributeType
+{
+  UNKNOWN_AT = 0;
+  STRING_AT = 1;
+  INT_AT = 2;
+  LONG_AT = 3;
+  DOUBLE_AT= 4;
+  BYTES_AT = 5;
+  NESTED_AT = 6;
+  BOOLEAN_AT = 7;
+  TIMESTAMP_AT = 8;
+}
+
+message CustomDeserializer {
+  oneof deserializer {
+    ProtoDeserializer  protoDeserializer = 1;
+  }
+
+  message ProtoDeserializer {
+    string protoClass = 1;
+  }
+}

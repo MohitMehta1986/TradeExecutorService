@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ComputeServicePod" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="awesome.code.launcher.GRPCServiceLauncher" />
+    <module name="option-trade-processor-service" />
+    <option name="PROGRAM_PARAMETERS" value="-e dev -svc ComputeServicePod -svi 1 -c C:\myprojects\OptionTradingProject\GitProject\OptionTradeExecutor\OptionTradeExecutorService\src\main\config" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,10 @@
+{
+  "ClientSystemCodeAndPodVsHostIndexConfig": {
+    "QueryServicePod-DEFAULT": {
+      "hostIndexVsHostName": {
+        "DEFAULT_1": "localhost"
+      },
+      "isService": true
+    }
+  }
+}

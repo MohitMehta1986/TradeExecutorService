@@ -1,0 +1,71 @@
+syntax ="proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package options.trading.serialized.result.proto;
+
+message SerializedResult {
+  repeated StringField stringField = 1;
+  repeated IntField intField = 2;
+  repeated LongField longField = 3;
+  repeated DoubleField doubleField = 4;
+  repeated ByteArrayField byteArrayField = 5;
+  repeated ObjectField objectField = 6;
+  repeated NullField nullField = 7;
+  repeated NestedSerializedResult nestedSerializedResult = 8;
+  repeated BooleanField booleanField = 9;
+  repeated TimestampField timeStampField = 10;
+}
+
+message StringField {
+  string value = 1;
+  int32 index = 2;
+}
+
+message IntField {
+  int32 value = 1;
+  int32 index = 2;
+}
+
+message LongField {
+  int64 value = 1;
+  int32 index = 2;
+}
+
+message DoubleField
+{
+  double value = 1;
+  int32 index = 2;
+}
+
+message ByteArrayField {
+  bytes value =1;
+  int32 index =2;
+}
+
+message ObjectField {
+  string value =1;
+  int32 index =2;
+  string type =3;
+}
+
+message NullField
+{
+  int32 index =1;
+}
+
+message NestedSerializedResult {
+  repeated SerializedResult serializedResult = 1;
+  int32 index =2;
+}
+
+message BooleanField {
+  bool value = 1;
+  int32 index = 2;
+}
+
+message TimestampField
+{
+  google.protobuf.Timestamp timestamp = 1;
+  int32 index = 2;
+}

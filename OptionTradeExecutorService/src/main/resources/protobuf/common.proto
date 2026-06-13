@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package options.trading.common.proto;
+
+enum ContextName {
+  UNDEFINED = 0;
+  OFFICIAL = 1;
+  PRIVATE = 2;
+  LIVE = 3;
+  EOD = 4;
+}
+
+message Context {
+  ContextName contextName = 1;
+}
+
+message Key {
+  string KeyName = 1;
+}
+
+message Type {
+  string typeName = 1;
+}
+
+enum ResultStatus
+{
+  ResultStatus_UNKNOWN = 0;
+  SUCCESS = 1;
+  ERROR = 2;
+}
+

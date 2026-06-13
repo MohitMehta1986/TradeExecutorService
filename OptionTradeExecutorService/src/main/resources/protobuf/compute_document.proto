@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package options.trading.execution.proto;
+
+message ComputeDocument {
+  string changeUserId = 1;
+  oneof attributes {
+    ComputeMapRequest computeMapRequest = 2;
+    string computeRequest = 3;
+  }
+}
+
+message ComputeMapRequest
+{
+  map<string, string> computeAttributes = 1;
+}

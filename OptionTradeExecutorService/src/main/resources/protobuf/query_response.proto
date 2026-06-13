@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package options.trading.query.proto;
+
+import "serialized_result.proto";
+import "select_column_attribute_mapping.proto";
+
+message QueryResponse {
+
+  oneof response {
+    options.trading.serialized.result.proto.SerializedResult resultResponse = 3;
+  MetaDataResponse metaDataResponse = 4;
+  bool NoMoreResults = 5;
+  }
+
+  message MetaDataResponse{
+    repeated MetaData metaData = 1;
+  }
+
+  message MetaData
+  {
+     string label = 1;
+     int32 index = 2;
+     repeated MetaData metaData = 3;
+     AttributeTypeDef attributeTypeDef = 4;
+  }
+
+  message AttributeTypeDef {
+    options.trading.query.select.proto.AttributeType attributeType = 1;
+    string type = 2;
+  }
+}
